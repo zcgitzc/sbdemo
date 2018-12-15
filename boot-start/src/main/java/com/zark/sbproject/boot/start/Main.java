@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.web.controller;
+package com.zark.sbproject.boot.start;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 //扫描Spring注解 包括不限于：@Controller @Service
 @ComponentScan({ "com.zark.sbproject.boot" })
 @MapperScan(basePackages = "com.zark.sbproject.boot.entity.**.mapper", annotationClass = org.springframework.stereotype.Repository.class)
-public class App {
+public class Main {
 	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 }
