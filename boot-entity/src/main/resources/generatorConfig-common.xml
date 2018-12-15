@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- mvn mybatis-generator:generate -->
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!-- 可以将一些常量配置到properties中 -->
+		<!-- <properties resource="config.properties" /> -->
+		<!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+		<property name="javaFileEncoding" value="UTF-8" />
+		<!-- 配置插件 -->
+		<plugin
+			type="com.zark.sbproject.boot.entity.plugin.MyBatisPaginationPlugin" />
+
+		<commentGenerator
+			type="com.zark.sbproject.boot.entity.plugin.MyBatisPaginationPlugin">
+			<!-- 解决生成的注释乱码 -->
+			<property name="javaFileEncoding" value="UTF-8" />
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+
+		<!-- Mysql8.0之后连接驱动改了：https://blog.csdn.net/qq_22076345/article/details/81952035 -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost/springboot-maven?serverTimezone=UTC&amp;characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false"
+			userId="root" password="Zark123456#">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator
+			targetPackage="com.zark.sbproject.boot.entity.common.module"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator
+			targetPackage="com.zark.sbproject.boot.entity.common.mapper"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.zark.sbproject.boot.entity.common.mapper"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="boot_user" domainObjectName="UserDo"
+			enableCountByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+
+	</context>
+</generatorConfiguration>
