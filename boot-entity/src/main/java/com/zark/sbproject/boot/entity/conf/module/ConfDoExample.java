@@ -22,7 +22,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public ConfDoExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class ConfDoExample {
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class ConfDoExample {
     }
 
     /**
-     * boot_conf 2018-12-15
+     * boot_conf null
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -625,7 +625,7 @@ public class ConfDoExample {
     /**
      * boot_conf
      *
-     * @mbggenerated do_not_delete_during_merge 2018-12-15
+     * @mbggenerated do_not_delete_during_merge
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -635,7 +635,7 @@ public class ConfDoExample {
     }
 
     /**
-     * boot_conf 2018-12-15
+     * boot_conf null
      */
     public static class Criterion {
         private String condition;

@@ -6,49 +6,49 @@ public class ConfDo {
     /**
      * ä¸»é”®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private Long id;
 
     /**
      * æ˜¯å¦åˆ é™¤
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private String isDeleted;
 
     /**
      * åˆ›å»ºæ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private Date gmtCreate;
 
     /**
      * ä¿®æ”¹æ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private Date gmtModified;
 
     /**
      * åˆ›å»ºè€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private String creator;
 
     /**
      * ä¿®æ”¹è€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private String modifier;
 
     /**
      * é…ç½®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     private String config;
 
@@ -56,7 +56,7 @@ public class ConfDo {
      * ä¸»é”®
      * @return id ä¸»é”®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public Long getId() {
         return id;
@@ -66,7 +66,7 @@ public class ConfDo {
      * ä¸»é”®
      * @param id ä¸»é”®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setId(Long id) {
         this.id = id;
@@ -76,7 +76,7 @@ public class ConfDo {
      * æ˜¯å¦åˆ é™¤
      * @return is_deleted æ˜¯å¦åˆ é™¤
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public String getIsDeleted() {
         return isDeleted;
@@ -86,7 +86,7 @@ public class ConfDo {
      * æ˜¯å¦åˆ é™¤
      * @param isDeleted æ˜¯å¦åˆ é™¤
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setIsDeleted(String isDeleted) {
         this.isDeleted = isDeleted == null ? null : isDeleted.trim();
@@ -96,7 +96,7 @@ public class ConfDo {
      * åˆ›å»ºæ—¶é—´
      * @return gmt_create åˆ›å»ºæ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public Date getGmtCreate() {
         return gmtCreate;
@@ -106,7 +106,7 @@ public class ConfDo {
      * åˆ›å»ºæ—¶é—´
      * @param gmtCreate åˆ›å»ºæ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
@@ -116,7 +116,7 @@ public class ConfDo {
      * ä¿®æ”¹æ—¶é—´
      * @return gmt_modified ä¿®æ”¹æ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -126,7 +126,7 @@ public class ConfDo {
      * ä¿®æ”¹æ—¶é—´
      * @param gmtModified ä¿®æ”¹æ—¶é—´
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -136,7 +136,7 @@ public class ConfDo {
      * åˆ›å»ºè€…
      * @return creator åˆ›å»ºè€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public String getCreator() {
         return creator;
@@ -146,7 +146,7 @@ public class ConfDo {
      * åˆ›å»ºè€…
      * @param creator åˆ›å»ºè€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -156,7 +156,7 @@ public class ConfDo {
      * ä¿®æ”¹è€…
      * @return modifier ä¿®æ”¹è€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public String getModifier() {
         return modifier;
@@ -166,7 +166,7 @@ public class ConfDo {
      * ä¿®æ”¹è€…
      * @param modifier ä¿®æ”¹è€…
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -176,7 +176,7 @@ public class ConfDo {
      * é…ç½®
      * @return config é…ç½®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public String getConfig() {
         return config;
@@ -186,7 +186,7 @@ public class ConfDo {
      * é…ç½®
      * @param config é…ç½®
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     public void setConfig(String config) {
         this.config = config == null ? null : config.trim();

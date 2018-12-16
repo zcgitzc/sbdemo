@@ -15,3 +15,5 @@ springboot 学习
 *注意：如果要配置durid spring bean监控，因为依赖了spring aop必须maven添加spring aop依赖才行*
 
 # 待办事项
+* 建立shell脚本执行mybait-generator命令
+* mybatis-generator生成的注释乱码

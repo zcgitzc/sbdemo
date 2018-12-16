@@ -7,37 +7,37 @@ import java.util.List;
 public interface ConfDoMapper {
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     int countByExample(ConfDoExample example);
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     int deleteByPrimaryKey(ConfDo record);
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     int insertSelective(ConfDo record);
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     List<ConfDo> selectByExample(ConfDoExample example);
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     ConfDo selectByPrimaryKey(Long id);
 
     /**
      *
-     * @mbggenerated 2018-12-15
+     * @mbggenerated
      */
     int updateByPrimaryKeySelective(ConfDo record);
 }
