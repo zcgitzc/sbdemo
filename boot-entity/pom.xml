@@ -24,12 +24,11 @@
 			<version>1.3.2</version>
 		</dependency>
 
-		<!-- mysql连接以来（如果使用MyBatisPaginationPlugin中main方法生成文件的话，需要此依赖） 如果使用maven 
+		<!-- mysql连接依赖（如果使用MyBatisPaginationPlugin中main方法生成文件的话，需要此依赖） 如果使用maven 
 			plugin执行 mvn命令的话，不需要 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
 		</dependency>
 	</dependencies>
 
@@ -53,7 +52,7 @@
 					<dependency>
 						<groupId>mysql</groupId>
 						<artifactId>mysql-connector-java</artifactId>
-						<version>8.0.11</version>
+						<version>8.0.13</version>
 					</dependency>
 				</dependencies>
 			</plugin>
