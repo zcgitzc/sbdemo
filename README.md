@@ -17,3 +17,4 @@ springboot 学习
 # 待办事项
 * 建立shell脚本执行mybait-generator命令
 * mybatis-generator生成的注释乱码
+* CrossUtils改为通用
