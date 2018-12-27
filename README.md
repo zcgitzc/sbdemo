@@ -17,6 +17,7 @@ springboot 学习
 # 待办事项
 * 建立shell脚本执行mybait-generator命令
 * mybatis-generator生成的注释乱码
-* CrossUtils改为通用
+~~ * CrossUtils改为通用 ~~
 * 整理最近两个项目所学到的大数据量优化思路
 * 随手弄一个多线程
+* 查看Java进程
