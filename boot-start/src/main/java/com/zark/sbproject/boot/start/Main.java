@@ -4,6 +4,6 @@ import org.springframework.boot.SpringApplication;
 
 public class Main {
 	public static void main(String[] args) {
-		SpringApplication.run(MainConfiguration.class, args);
+		SpringApplication.run(Configuration.class, args);
 	}
 }
