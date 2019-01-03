@@ -22,3 +22,4 @@ springboot 学习
 * 随手弄一个多线程
 * 查看Java进程
 * Java内存溢出定位问题 gc (allocation failure) 频繁
+* java lambda表达式 变量final
