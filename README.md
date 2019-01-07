@@ -23,4 +23,5 @@ springboot 学习
 * 查看Java进程
 * Java内存溢出定位问题 gc (allocation failure) 频繁
 * java lambda表达式 变量final
-* 1000万数据，上传到oss（堆内存溢出）
+* 1000万数据，上传到oss（堆内存溢出） 使用ByteArrayOutputStream 一行一行写入
+* Kryo序列化对象
