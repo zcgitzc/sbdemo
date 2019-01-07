@@ -25,3 +25,4 @@ springboot 学习
 * java lambda表达式 变量final
 * 1000万数据，上传到oss（堆内存溢出） 使用ByteArrayOutputStream 一行一行写入
 * Kryo序列化对象
+* 看发给自己的钉钉消息
