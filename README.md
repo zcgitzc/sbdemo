@@ -17,7 +17,7 @@ springboot 学习
 # 待办事项
 * 建立shell脚本执行mybait-generator命令
 * mybatis-generator生成的注释乱码
-~~ * CrossUtils改为通用 ~~
+* CrossUtils改为通用
 * 整理最近两个项目所学到的大数据量优化思路
 * 随手弄一个多线程
 * 查看Java进程
@@ -26,3 +26,4 @@ springboot 学习
 * 1000万数据，上传到oss（堆内存溢出） 使用ByteArrayOutputStream 一行一行写入
 * Kryo序列化对象
 * 看发给自己的钉钉消息
+* ActiveMQ + 封装类
