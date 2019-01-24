@@ -27,3 +27,4 @@ springboot 学习
 * Kryo序列化对象
 * 看发给自己的钉钉消息
 * ActiveMQ + 封装类
+* Mysql已经发生死锁怎么解决
