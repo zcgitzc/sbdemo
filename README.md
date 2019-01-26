@@ -28,3 +28,4 @@ springboot 学习
 * 看发给自己的钉钉消息
 * ActiveMQ + 封装类
 * Mysql已经发生死锁怎么解决
+* JMeter web测试。同时调用一百次rpc请求
