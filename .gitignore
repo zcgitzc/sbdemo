@@ -51,3 +51,5 @@ target/
 logs
 !.mvn/wrapper/maven-wrapper.jar
 antx.properties
+.DS_Store
+
