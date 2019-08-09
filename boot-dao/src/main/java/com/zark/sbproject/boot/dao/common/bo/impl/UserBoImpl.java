@@ -20,22 +20,22 @@ public class UserBoImpl implements UserBo {
 
 	@Resource
 	private UserDoMapperExt userDoMapperExt;
-	@Autowired
-	private JmsMessagingTemplate jmsMessagingTemplate;
+//	@Autowired
+//	private JmsMessagingTemplate jmsMessagingTemplate;
 
 	@Override
 	public List<UserDo> queryAll() {
 		return userDoMapperExt.selectByExample(new UserDoExample());
 	}
 
-	@Override
-	public void sendMessage(Destination destination, String message) {
-		jmsMessagingTemplate.convertAndSend(destination.getName(), message);
-	}
+//	@Override
+//	public void sendMessage(Destination destination, String message) {
+//		jmsMessagingTemplate.convertAndSend(destination.getName(), message);
+//	}
 
 	
-	@JmsListener(destination = "return-queue")
-    public void Message(String message){
-        System.out.println("Product收到:"+message);
-    }
+//	@JmsListener(destination = "return-queue")
+//    public void Message(String message){
+//        System.out.println("Product收到:"+message);
+//    }
 }

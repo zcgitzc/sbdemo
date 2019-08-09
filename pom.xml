@@ -120,6 +120,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+		</dependency>
 		<!-- 启用JMS 的池化, 就一定要加上这个 jar -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>

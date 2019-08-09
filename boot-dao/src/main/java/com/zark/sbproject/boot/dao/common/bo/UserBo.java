@@ -9,6 +9,6 @@ import com.zark.sbproject.boot.entity.common.module.UserDo;
 public interface UserBo {
 	List<UserDo> queryAll();
 	
-    void sendMessage(Destination destination,String message);
+//    void sendMessage(Destination destination,String message);
 
 }
