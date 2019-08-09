@@ -11,4 +11,5 @@ public class Topic2Receiver {
 //		System.out.println("这是持久订阅: " + msg);
 //	}
 
+
 }
