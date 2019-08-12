@@ -1,21 +1,21 @@
 package com.zark.sbproject.boot.start;
 
-import javax.jms.ConnectionFactory;
+//import javax.jms.ConnectionFactory;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
+//import org.apache.activemq.ActiveMQConnectionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jms.annotation.EnableJms;
-import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
-import org.springframework.jms.config.JmsListenerContainerFactory;
-import org.springframework.jms.core.JmsMessagingTemplate;
-import org.springframework.jms.core.JmsTemplate;
+//import org.springframework.jms.annotation.EnableJms;
+//import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
+//import org.springframework.jms.config.JmsListenerContainerFactory;
+//import org.springframework.jms.core.JmsMessagingTemplate;
+//import org.springframework.jms.core.JmsTemplate;
 
 //查看源码 same as: @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan
 @SpringBootApplication(scanBasePackages = { "com.zark.sbproject.boot" })
 //扫描Spring注解 包括不限于：@Controller @Service
-@MapperScan(basePackages = "com.zark.sbproject.boot.entity.**.mapper", annotationClass = org.springframework.stereotype.Repository.class)
+@MapperScan(basePackages = "com.zark.sbproject.boot.dao.**.mapper", annotationClass = org.springframework.stereotype.Repository.class)
 //@EnableJms
 public class Configuration {
 

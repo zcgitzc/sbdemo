@@ -4,37 +4,31 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+	<artifactId>boot-biz</artifactId>
+	<packaging>jar</packaging>
+	
 	<parent>
 		<groupId>com.zark.sbproject</groupId>
 		<artifactId>sbdemo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<artifactId>boot-start</artifactId>
-	<name>boot-start</name>
-
+	
+	<name>boot-biz</name>
 	<url>http://maven.apache.org</url>
+	
 	<dependencies>
-
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.zark.sbproject</groupId>
-			<artifactId>boot-web</artifactId>
+			<artifactId>boot-dao</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<groupId>com.zark.sbproject</groupId>
+			<artifactId>boot-common</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-
 	</dependencies>
 </project>
