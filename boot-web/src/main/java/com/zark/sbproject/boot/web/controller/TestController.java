@@ -1,34 +1,41 @@
 package com.zark.sbproject.boot.web.controller;
 
-//import javax.jms.Destination;
-//
-//import org.apache.activemq.command.ActiveMQQueue;
-//import org.apache.activemq.command.ActiveMQTopic;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.jms.core.JmsMessagingTemplate;
-//import org.springframework.web.bind.annotation.RequestMapping;
+import com.zark.sbproject.boot.biz.common.message.IJmsProducer;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 @RestController
 public class TestController {
-//
-//	private JmsMessagingTemplate jmsTemplate;
-//
-//	@Autowired
-//	public void setJmsTemplate(JmsMessagingTemplate jmsTemplate) {
-//		this.jmsTemplate = jmsTemplate;
-//	}
-//
-//	@RequestMapping("sendQueue")
-//	public void sendQueueMessage(String message) {
-//		Destination destination = new ActiveMQQueue("queueTest");
-//		this.jmsTemplate.convertAndSend(destination, message);
-//	}
-//
-//	@RequestMapping("sendTopic")
-//	public void sendTopicMessage(String message) {
-//		Destination destination = new ActiveMQTopic("topicTest");
-//		this.jmsTemplate.convertAndSend(destination, message);
-//	}
+
+    @Resource
+    private IJmsProducer iJmsProducer;
+
+
+    @GetMapping("sendQueue")
+    public void sendQueueMessage(String message) {
+        iJmsProducer.sendMessageToQueue("i-queue", message);
+    }
+
+    @GetMapping("sendTopic")
+    public void sendTopicMessage(String message) {
+        iJmsProducer.sendMessageToTopic("i-topic", message);
+    }
+
+
+    @JmsListener(destination = "i-queue ", containerFactory = "queueListenerFactory")
+    public void receiveQueue(String message) {
+        System.out.println("receive queue message:" + message);
+
+    }
+
+    @JmsListener(destination = "i-topic ", containerFactory = "topicListenerFactory")
+    public void receiveTopic(String message) {
+        System.out.println("receive topic message:" + message);
+    }
+
+
 
 }
