@@ -18,7 +18,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.zark.sbproject</groupId>
-			<artifactId>boot-biz</artifactId>
+			<artifactId>boot-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zark.sbproject</groupId>
+			<artifactId>boot-service</artifactId>
 		</dependency>
 
 		<dependency>

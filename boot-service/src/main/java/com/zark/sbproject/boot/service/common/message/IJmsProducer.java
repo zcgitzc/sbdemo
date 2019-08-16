@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.biz.common.message;
+package com.zark.sbproject.boot.service.common.message;
 
 /**
  * 消息提供者接口

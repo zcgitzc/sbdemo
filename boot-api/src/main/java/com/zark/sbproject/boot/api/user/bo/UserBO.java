@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.biz.user.service.bo;
+package com.zark.sbproject.boot.api.user.bo;
 
 /**
  * @author zark

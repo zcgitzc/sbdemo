@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.common.utils;
+package com.zark.sbproject.boot.common.util;
 
 import java.util.ArrayList;
 import java.util.List;

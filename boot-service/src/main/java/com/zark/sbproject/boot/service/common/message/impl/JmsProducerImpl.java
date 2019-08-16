@@ -1,7 +1,6 @@
-package com.zark.sbproject.boot.biz.common.message.impl;
+package com.zark.sbproject.boot.service.common.message.impl;
 
-import javax.annotation.Resource;
-import com.zark.sbproject.boot.biz.common.message.IJmsProducer;
+import com.zark.sbproject.boot.service.common.message.IJmsProducer;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;

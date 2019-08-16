@@ -1,6 +1,6 @@
 package com.zark.sbproject.boot.web.controller;
 
-import com.zark.sbproject.boot.biz.common.message.IJmsProducer;
+import com.zark.sbproject.boot.service.common.message.IJmsProducer;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +35,5 @@ public class TestController {
     public void receiveTopic(String message) {
         System.out.println("receive topic message:" + message);
     }
-
-
 
 }

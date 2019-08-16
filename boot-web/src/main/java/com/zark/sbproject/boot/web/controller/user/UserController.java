@@ -1,7 +1,7 @@
 package com.zark.sbproject.boot.web.controller.user;
 
-import com.zark.sbproject.boot.biz.user.service.UserLocalService;
-import com.zark.sbproject.boot.dao.user.entity.UserPO;
+import com.zark.sbproject.boot.api.user.bo.UserBO;
+import com.zark.sbproject.boot.api.user.service.UserLocalService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ public class UserController {
     private UserLocalService userLocalService;
 
     @GetMapping("queryAll")
-    public List<UserPO> queryAll() {
+    public List<UserBO> queryAll() {
         return userLocalService.queryAll();
     }
 }
