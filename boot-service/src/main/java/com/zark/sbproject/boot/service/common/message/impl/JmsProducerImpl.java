@@ -1,6 +1,7 @@
 package com.zark.sbproject.boot.service.common.message.impl;
 
 import com.zark.sbproject.boot.service.common.message.IJmsProducer;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.jms.core.JmsTemplate;
  * @date 2019-08-15 22:41:08
  */
 @Service
+@Slf4j
 public class JmsProducerImpl implements IJmsProducer {
 
     @Autowired
@@ -20,10 +22,12 @@ public class JmsProducerImpl implements IJmsProducer {
     @Override
     public void sendMessageToTopic(String destination, final String message) {
         jmsTemplate.convertAndSend(new ActiveMQTopic(destination), message);
+        log.info("send topic message success. destination:{},message:{}", destination, message);
     }
 
     @Override
     public void sendMessageToQueue(String destination, final String message) {
         jmsTemplate.convertAndSend(new ActiveMQQueue(destination), message);
+        log.info("send queue message success. destination:{},message:{}", destination, message);
     }
 }

@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+boot-log/
 
 # BlueJ files
 *.ctxt

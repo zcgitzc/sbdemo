@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logback Configuration.  -->
+<configuration debug="false">
+
+    <springProperty scope="context" name="logging.path" source="logging.path" defaultValue="boot-logs"/>
+
+    <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.path}/all.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logging.path}/all.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                <![CDATA[
+                %n%-4r [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %m%n
+            ]]>
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.path}/sql.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logging.path}/sql.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                <![CDATA[
+                %n%-4r [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %m%n
+            ]]>
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="BIZ_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.path}/biz_all.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logging.path}/biz_all.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                <![CDATA[
+                %n%-4r [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %m%n
+            ]]>
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="WEB" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.path}/web.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logging.path}/web.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                <![CDATA[
+                %n%-4r [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %m%n
+            ]]>
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{100} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <springProfile name="dev,test">
+        <logger name="java.sql" level="DEBUG" additivity="false">
+            <appender-ref ref="SQL"/>
+            <appender-ref ref="STDOUT"/>
+        </logger>
+
+        <logger name="com.zark.sbproject.boot.dao" level="DEBUG" additivity="false">
+            <appender-ref ref="SQL"/>
+            <appender-ref ref="STDOUT"/>
+        </logger>
+
+        <logger name="com.zark.sbproject.boot.service" level="DEBUG" additivity="false">
+            <appender-ref ref="BIZ_ALL"/>
+        </logger>
+        <logger name="com.zark.sbproject.boot.common" level="DEBUG" additivity="false">
+            <appender-ref ref="BIZ_ALL"/>
+        </logger>
+        <logger name="com.zark.sbproject.boot.web" level="DEBUG" additivity="false">
+            <appender-ref ref="WEB"/>
+        </logger>
+        <logger name="org.apache.commons.beanutils" additivity="false">
+            <level value="INFO"/>
+            <appender-ref ref="ALL"/>
+        </logger>
+
+
+        <root level="INFO">
+            <appender-ref ref="ALL"/>
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+
+
+    <springProfile name="prod">
+        <logger name="java.sql" level="ERROR" additivity="false">
+            <appender-ref ref="SQL"/>
+        </logger>
+
+        <logger name="com.zark.sbproject.boot.dao" level="ERROR" additivity="false">
+            <appender-ref ref="SQL"/>
+        </logger>
+
+        <logger name="com.zark.sbproject.boot.service" level="WARN" additivity="false">
+            <appender-ref ref="BIZ_ALL"/>
+        </logger>
+        <logger name="com.zark.sbproject.boot.common" level="WARN" additivity="false">
+            <appender-ref ref="BIZ_ALL"/>
+        </logger>
+        <logger name="com.zark.sbproject.boot.web" level="WARN" additivity="false">
+            <appender-ref ref="WEB"/>
+        </logger>
+        <logger name="org.apache.commons.beanutils" level="WARN" additivity="false">
+            <appender-ref ref="ALL"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="ALL"/>
+        </root>
+    </springProfile>
+
+
+</configuration>
