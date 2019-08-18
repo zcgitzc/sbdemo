@@ -1,6 +1,6 @@
-package com.zark.sbproject.boot.service.common.message.impl;
+package com.zark.sbproject.boot.service.common.message.producer.impl;
 
-import com.zark.sbproject.boot.service.common.message.IJmsProducer;
+import com.zark.sbproject.boot.service.common.message.producer.ActiveMqMessageProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
@@ -14,7 +14,7 @@ import org.springframework.jms.core.JmsTemplate;
  */
 @Service
 @Slf4j
-public class JmsProducerImpl implements IJmsProducer {
+public class ActiveMqMessageProducerImpl implements ActiveMqMessageProducer {
 
     @Autowired
     private JmsTemplate jmsTemplate;

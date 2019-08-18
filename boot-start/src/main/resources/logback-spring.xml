@@ -88,16 +88,20 @@
 
         <logger name="com.zark.sbproject.boot.service" level="DEBUG" additivity="false">
             <appender-ref ref="BIZ_ALL"/>
+            <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="com.zark.sbproject.boot.common" level="DEBUG" additivity="false">
             <appender-ref ref="BIZ_ALL"/>
+            <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="com.zark.sbproject.boot.web" level="DEBUG" additivity="false">
             <appender-ref ref="WEB"/>
+            <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="org.apache.commons.beanutils" additivity="false">
             <level value="INFO"/>
             <appender-ref ref="ALL"/>
+            <appender-ref ref="STDOUT"/>
         </logger>
 
 

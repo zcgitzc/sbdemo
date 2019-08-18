@@ -1,11 +1,11 @@
-package com.zark.sbproject.boot.service.common.message;
+package com.zark.sbproject.boot.service.common.message.producer;
 
 /**
  * 消息提供者接口
  * @author zark
  * @date 2019-08-15 22:40:07
  */
-public interface IJmsProducer {
+public interface ActiveMqMessageProducer {
 
     /**
      * 发送消息（发布-订阅模式）
