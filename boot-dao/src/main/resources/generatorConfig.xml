@@ -50,9 +50,15 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="zark_user" domainObjectName="UserPO"
+        <!--<table tableName="zark_user" domainObjectName="UserPO"
+               enableCountByExample="true" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="true"></table>-->
+
+        <table tableName="app_message_deal" domainObjectName="MessageDealPO"
                enableCountByExample="true" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="true"></table>
+
     </context>
 </generatorConfiguration>

@@ -24,22 +24,22 @@ public class MyBatisPaginationPlugin extends PluginAdapter {
     private static final String MAPPER_ANNOTATION = "@Repository";
     private static final String BASIS_CONDITION = " where is_deleted = 'n' ";
 
-    private static final Map<String, String> FIELD_PROPERTY_MAP = new HashMap<>(5);
+    private static final Map<String, String> PROPERTY_FIELD_MAP = new HashMap<>(5);
     private static final Map<String, String> PROPERTY_DEFAULT_VALUE_MAP = new HashMap<>(5);
 
     public MyBatisPaginationPlugin() {
         super();
-        FIELD_PROPERTY_MAP.put("is_deleted", "isDeleted");
-        FIELD_PROPERTY_MAP.put("gmt_create", "gmtCreate");
-        FIELD_PROPERTY_MAP.put("gmt_modified", "gmtModified");
-        FIELD_PROPERTY_MAP.put("modifier", "modifier");
-        FIELD_PROPERTY_MAP.put("creator", "creator");
+        PROPERTY_FIELD_MAP.put("isDeleted", "is_deleted");
+        PROPERTY_FIELD_MAP.put("gmtCreate", "gmt_create");
+        PROPERTY_FIELD_MAP.put("gmtModified", "gmt_modified");
+        PROPERTY_FIELD_MAP.put("modifier", "modifier");
+        PROPERTY_FIELD_MAP.put("creator", "creator");
 
         PROPERTY_DEFAULT_VALUE_MAP.put("isDeleted", "'n'");
         PROPERTY_DEFAULT_VALUE_MAP.put("gmtCreate", "NOW()");
         PROPERTY_DEFAULT_VALUE_MAP.put("gmtModified", "NOW()");
-        PROPERTY_DEFAULT_VALUE_MAP.put("modifier", "system");
-        PROPERTY_DEFAULT_VALUE_MAP.put("creator", "system");
+        PROPERTY_DEFAULT_VALUE_MAP.put("modifier", "'system'");
+        PROPERTY_DEFAULT_VALUE_MAP.put("creator", "'system'");
     }
 
     /**
@@ -246,24 +246,24 @@ public class MyBatisPaginationPlugin extends PluginAdapter {
         }
 
         if (fieldItem != null) {
-            addInserXmlElement(fieldItem, FIELD_PROPERTY_MAP);
+            addInsertXmlElement(fieldItem, PROPERTY_FIELD_MAP);
         }
 
         if (valueItem != null) {
-            addInserXmlElement(valueItem, PROPERTY_DEFAULT_VALUE_MAP);
+            addInsertXmlElement(valueItem, PROPERTY_DEFAULT_VALUE_MAP);
         }
 
         return super.sqlMapInsertSelectiveElementGenerated(element, introspectedTable);
     }
 
-    private void addInserXmlElement(XmlElement xmlElement, Map<String, String> mapValues) {
+    private void addInsertXmlElement(XmlElement xmlElement, Map<String, String> mapValues) {
         for (Map.Entry<String, String> entry : mapValues.entrySet()) {
             String property = entry.getKey();
-            String defaultValue = entry.getValue();
+            String fieldOrDefaultValue = entry.getValue();
 
             XmlElement defaultIsDeleted = new XmlElement("if");
             defaultIsDeleted.addAttribute(new Attribute("test", property + " == null"));
-            defaultIsDeleted.addElement(new TextElement(defaultValue + ","));
+            defaultIsDeleted.addElement(new TextElement(fieldOrDefaultValue + ","));
             xmlElement.addElement(1, defaultIsDeleted);
         }
     }

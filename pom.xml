@@ -33,11 +33,12 @@
 	</properties>
 
 	<modules>
-		<module>boot-biz</module>
+		<module>boot-service</module>
 		<module>boot-web</module>
 		<module>boot-common</module>
 		<module>boot-start</module>
 		<module>boot-dao</module>
+		<module>boot-api</module>
 	</modules>
 
 	<developers>
@@ -55,7 +56,12 @@
 			<!-- 优点:各模块之间引用不需要再制定版本 -->
 			<dependency>
 				<groupId>com.zark.sbproject</groupId>
-				<artifactId>boot-biz</artifactId>
+				<artifactId>boot-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zark.sbproject</groupId>
+				<artifactId>boot-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -95,7 +101,7 @@
 				<artifactId>spring-boot-starter-aop</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
-			<dependency>
+			 <dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-activemq</artifactId>
 				<version>${spring-boot.version}</version>
@@ -130,6 +136,7 @@
 			<dependency>
 				<groupId>org.apache.activemq</groupId>
 				<artifactId>activemq-pool</artifactId>
+				<version>5.15.3</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->

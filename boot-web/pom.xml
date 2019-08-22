@@ -18,7 +18,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.zark.sbproject</groupId>
-			<artifactId>boot-biz</artifactId>
+			<artifactId>boot-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zark.sbproject</groupId>
+			<artifactId>boot-service</artifactId>
 		</dependency>
 
 		<dependency>
@@ -29,6 +34,11 @@
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
 	</dependencies>
