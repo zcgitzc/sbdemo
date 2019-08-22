@@ -14,18 +14,10 @@ springboot 学习
 
 *注意：如果要配置durid spring bean监控，因为依赖了spring aop必须maven添加spring aop依赖才行*
 
-# 待办事项
-* 建立shell脚本执行mybait-generator命令
-* mybatis-generator生成的注释乱码
-* CrossUtils改为通用
-* 整理最近两个项目所学到的大数据量优化思路
-* 随手弄一个多线程
-* 查看Java进程
-* Java内存溢出定位问题 gc (allocation failure) 频繁
-* java lambda表达式 变量final
-* 1000万数据，上传到oss（堆内存溢出） 使用ByteArrayOutputStream 一行一行写入
-* Kryo序列化对象
-* 看发给自己的钉钉消息
-* ActiveMQ + 封装类
-* Mysql已经发生死锁怎么解决
-* JMeter web测试。同时调用一百次rpc请求
+
+# 项目内容
+* 利用mysql唯一索引实现分布式锁
+* logback日志精准打印
+* 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段
+* activeMq消息实现分布式事务控制
+* and so on 
