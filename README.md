@@ -21,3 +21,7 @@ springboot 学习
 * 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段
 * activeMq消息实现分布式事务控制
 * and so on 
+
+#待办事项
+* 添加app_lock实现分布式锁
+* fix 代码中的TODO
