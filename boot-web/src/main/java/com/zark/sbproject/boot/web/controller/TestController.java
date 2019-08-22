@@ -46,4 +46,9 @@ public class TestController {
         MessageDealBO messageDealBO = messageDealLocalService.lockByMessageId(messageId);
         return messageDealBO;
     }
+
+    @GetMapping("exception")
+    public void exception() {
+        System.out.println(1 / 0);
+    }
 }

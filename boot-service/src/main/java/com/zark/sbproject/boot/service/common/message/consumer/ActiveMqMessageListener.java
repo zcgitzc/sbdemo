@@ -4,9 +4,11 @@ import com.zark.sbproject.boot.common.util.SpringContextUtil;
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
 import com.zark.sbproject.boot.service.common.constant.MessageConstants;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
+import com.zark.sbproject.boot.service.common.service.impl.MessageDealLocalServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -25,6 +27,7 @@ import java.util.Date;
 @Component
 public class ActiveMqMessageListener implements MessageListener {
 
+//TODO create by zark 2019-08-19 总是注入失败 null
 
 //    @Resource
 //    private MessageDealLocalService messageDealLocalService;
@@ -35,7 +38,7 @@ public class ActiveMqMessageListener implements MessageListener {
         MessageDealLocalService messageDealLocalService = (MessageDealLocalService) SpringContextUtil.applicationContext.getBean("messageDealLocalServiceImpl");
         try {
             String messageBody = getMessageBody(message);
-            //todo query 的怎么监听
+            //TODO create by zark 2019-08-19 query 的怎么监听
             Destination destination = message.getJMSDestination();
             ActiveMQTopic activeMqTopic = (ActiveMQTopic) destination;
 
@@ -133,7 +136,7 @@ public class ActiveMqMessageListener implements MessageListener {
         if (message instanceof TextMessage) {
             return ((TextMessage) message).getText();
         } else if (message instanceof BytesMessage) {
-            // TODO 其他消息类型
+           //TODO create by zark 2019-08-19 其他消息类型
         } else {
             throw new RuntimeException("UNSUPPORTED_MESSAGE_TYPE");
         }
