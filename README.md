@@ -1,4 +1,5 @@
-### markdown 语法学习转到：https://www.jianshu.com/p/191d1e21f7ed
+### markdown 语法学习转到：
+http://www.markdown.cn
 # sbdemo项目
 springboot 学习
 
@@ -23,7 +24,7 @@ springboot 学习
 * and so on 
 
 # 待办事项
-* 添加app_lock实现分布式锁 (测试)
+* 添加app_lock实现分布式锁 (测试) --fixed
 * fix 代码中的TODO
 * 分布式事务测试
 * 添加AOP,5个字段

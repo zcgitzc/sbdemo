@@ -31,11 +31,20 @@
 			<groupId>com.zark.sbproject</groupId>
 			<artifactId>boot-common</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.zark.sbproject</groupId>
+			<artifactId>boot-api</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -52,9 +61,6 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.zark.sbproject</groupId>
-			<artifactId>boot-api</artifactId>
-		</dependency>
+
 	</dependencies>
 </project>
