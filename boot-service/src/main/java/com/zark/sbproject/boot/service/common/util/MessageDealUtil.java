@@ -1,6 +1,6 @@
 package com.zark.sbproject.boot.service.common.util;
 
-import com.zark.sbproject.boot.dao.user.entity.MessageDealPO;
+import com.zark.sbproject.boot.dao.common.entity.MessageDealPO;
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
 import org.springframework.beans.BeanUtils;
 

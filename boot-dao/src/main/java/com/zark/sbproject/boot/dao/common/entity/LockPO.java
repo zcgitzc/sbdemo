@@ -1,51 +1,56 @@
-package com.zark.sbproject.boot.dao.user.entity;
+package com.zark.sbproject.boot.dao.common.entity;
 
 import java.util.Date;
 
 /**
- * 用户表
+ * 分布式锁
  *
  * @author zark
  * @date   2019-08-24
  */
-public class UserPO {
+public class LockPO {
     /**
-     * 主键
+     * 
      */
     private Long id;
 
     /**
-     * 是否删除
-     */
-    private String isDeleted;
-
-    /**
-     * 创建时间
-     */
-    private Date gmtCreate;
-
-    /**
-     * 修改时间
-     */
-    private Date gmtModified;
-
-    /**
-     * 创建者
-     */
-    private String creator;
-
-    /**
-     * 修改者
+     * 
      */
     private String modifier;
 
     /**
-     * 用户名
+     * 
      */
-    private String username;
+    private String isDeleted;
 
     /**
-     * 主键
+     * 
+     */
+    private Date gmtCreate;
+
+    /**
+     * 
+     */
+    private Date gmtModified;
+
+    /**
+     * 
+     */
+    private String creator;
+
+    /**
+     * ?Key
+     */
+    private String lockKey;
+
+    /**
+     * 失效时间
+     */
+    private Date expireTime;
+
+    /**
+     * 
      * @return id
      */
     public Long getId() {
@@ -53,7 +58,7 @@ public class UserPO {
     }
 
     /**
-     * 主键
+     * 
     * @param id
      */
     public void setId(Long id) {
@@ -61,71 +66,7 @@ public class UserPO {
     }
 
     /**
-     * 是否删除
-     * @return is_deleted
-     */
-    public String getIsDeleted() {
-        return isDeleted;
-    }
-
-    /**
-     * 是否删除
-    * @param isDeleted
-     */
-    public void setIsDeleted(String isDeleted) {
-        this.isDeleted = isDeleted == null ? null : isDeleted.trim();
-    }
-
-    /**
-     * 创建时间
-     * @return gmt_create
-     */
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    /**
-     * 创建时间
-    * @param gmtCreate
-     */
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    /**
-     * 修改时间
-     * @return gmt_modified
-     */
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    /**
-     * 修改时间
-    * @param gmtModified
-     */
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    /**
-     * 创建者
-     * @return creator
-     */
-    public String getCreator() {
-        return creator;
-    }
-
-    /**
-     * 创建者
-    * @param creator
-     */
-    public void setCreator(String creator) {
-        this.creator = creator == null ? null : creator.trim();
-    }
-
-    /**
-     * 修改者
+     * 
      * @return modifier
      */
     public String getModifier() {
@@ -133,7 +74,7 @@ public class UserPO {
     }
 
     /**
-     * 修改者
+     * 
     * @param modifier
      */
     public void setModifier(String modifier) {
@@ -141,18 +82,98 @@ public class UserPO {
     }
 
     /**
-     * 用户名
-     * @return username
+     * 
+     * @return is_deleted
      */
-    public String getUsername() {
-        return username;
+    public String getIsDeleted() {
+        return isDeleted;
     }
 
     /**
-     * 用户名
-    * @param username
+     * 
+    * @param isDeleted
      */
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setIsDeleted(String isDeleted) {
+        this.isDeleted = isDeleted == null ? null : isDeleted.trim();
+    }
+
+    /**
+     * 
+     * @return gmt_create
+     */
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    /**
+     * 
+    * @param gmtCreate
+     */
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    /**
+     * 
+     * @return gmt_modified
+     */
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    /**
+     * 
+    * @param gmtModified
+     */
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    /**
+     * 
+     * @return creator
+     */
+    public String getCreator() {
+        return creator;
+    }
+
+    /**
+     * 
+    * @param creator
+     */
+    public void setCreator(String creator) {
+        this.creator = creator == null ? null : creator.trim();
+    }
+
+    /**
+     * ?Key
+     * @return lock_key
+     */
+    public String getLockKey() {
+        return lockKey;
+    }
+
+    /**
+     * ?Key
+    * @param lockKey
+     */
+    public void setLockKey(String lockKey) {
+        this.lockKey = lockKey == null ? null : lockKey.trim();
+    }
+
+    /**
+     * 失效时间
+     * @return expire_time
+     */
+    public Date getExpireTime() {
+        return expireTime;
+    }
+
+    /**
+     * 失效时间
+    * @param expireTime
+     */
+    public void setExpireTime(Date expireTime) {
+        this.expireTime = expireTime;
     }
 }

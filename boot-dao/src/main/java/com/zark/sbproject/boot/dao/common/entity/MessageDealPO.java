@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.dao.user.entity;
+package com.zark.sbproject.boot.dao.common.entity;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import java.util.Date;
  * 消息处理情况
  *
  * @author zark
- * @date   2019-08-19
+ * @date   2019-08-24
  */
 public class MessageDealPO {
     /**

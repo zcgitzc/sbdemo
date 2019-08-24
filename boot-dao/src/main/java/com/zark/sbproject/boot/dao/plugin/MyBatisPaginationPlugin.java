@@ -462,10 +462,15 @@ public class MyBatisPaginationPlugin extends PluginAdapter {
 
 
     public static void main(String[] args) throws Exception {
-        String config = MyBatisPaginationPlugin.class.getClassLoader()
-                .getResource("generatorConfig.xml").getFile();
-        String[] arg = {"-configfile", config, "-overwrite"};
-        ShellRunner.main(arg);
+//        String configUser = MyBatisPaginationPlugin.class.getClassLoader()
+//                .getResource("generatorConfig-user.xml").getFile();
+//        String[] argUser = {"-configfile", configUser, "-overwrite"};
+//        ShellRunner.main(argUser);
+
+        String configCommon = MyBatisPaginationPlugin.class.getClassLoader()
+                .getResource("generatorConfig-common.xml").getFile();
+        String[] argCommon = {"-configfile", configCommon, "-overwrite"};
+        ShellRunner.main(argCommon);
     }
 
 }

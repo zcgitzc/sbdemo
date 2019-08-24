@@ -1,6 +1,6 @@
-package com.zark.sbproject.boot.dao.user.mapper;
+package com.zark.sbproject.boot.dao.common.mapper;
 
-import com.zark.sbproject.boot.dao.user.entity.MessageDealPO;
+import com.zark.sbproject.boot.dao.common.entity.MessageDealPO;
 import org.springframework.stereotype.Repository;
 
 @Repository

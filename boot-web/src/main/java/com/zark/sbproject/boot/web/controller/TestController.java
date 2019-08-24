@@ -2,6 +2,7 @@ package com.zark.sbproject.boot.web.controller;
 
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
 import com.zark.sbproject.boot.service.common.message.producer.ActiveMqMessageProducer;
+import com.zark.sbproject.boot.service.common.service.LockLocalService;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,8 @@ public class TestController {
     private ActiveMqMessageProducer activeMqMessageProducer;
     @Resource
     private MessageDealLocalService messageDealLocalService;
-
+    @Resource
+    private LockLocalService lockLocalService;
 
     @GetMapping("sendQueue")
     public void sendQueueMessage(String message) {
@@ -50,5 +52,21 @@ public class TestController {
     @GetMapping("exception")
     public void exception() {
         System.out.println(1 / 0);
+    }
+
+    @GetMapping("lock")
+    public void lock(){
+        boolean hasLock = lockLocalService.tryLock("TEST");
+        if(hasLock){
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                lockLocalService.release("TEST");
+            }
+        }else{
+            System.out.println("get lock failure. please try later");
+        }
     }
 }
