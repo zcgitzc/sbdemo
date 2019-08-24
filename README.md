@@ -34,11 +34,13 @@ springboot 学习
 * 分布式锁、事务实现方式总结
 
 # 项目开发、发布流程
-flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
+```flow
+st=>start: 用户登陆
+op=>operation: 登陆操作
+cond=>condition: 登陆成功 Yes or No?
+e=>end: 进入后台
+
 st->op->cond
 cond(yes)->e
 cond(no)->op
+```
