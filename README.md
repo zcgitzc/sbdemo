@@ -33,3 +33,12 @@ springboot 学习
 * 本地热部署
 * 分布式锁、事务实现方式总结
 
+# 项目开发、发布流程
+flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
