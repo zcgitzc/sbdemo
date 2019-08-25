@@ -11,7 +11,16 @@ public interface UserLocalService {
 
     /**
      * 查看所有用户
-     * @return
      */
     List<UserBO> queryAll();
+
+    /**
+     * 保存
+     */
+    void insert(UserBO userBO);
+
+    /**
+     * 修改
+     */
+    void updateById(UserBO userBO);
 }

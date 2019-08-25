@@ -1,4 +1,5 @@
-### markdown 语法学习转到：https://www.jianshu.com/p/191d1e21f7ed
+### markdown 语法学习转到：
+http://www.markdown.cn
 # sbdemo项目
 springboot 学习
 
@@ -19,4 +20,27 @@ springboot 学习
 * logback日志精准打印
 * 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段
 * activeMq消息实现分布式事务控制
+* failsafe容错机制
+* 枚举抽象方法，实现状态机控制
 * and so on 
+
+# 待办事项
+* 添加app_lock实现分布式锁 (测试) --fixed
+* fix 代码中的TODO
+* 分布式事务测试
+* 添加AOP,5个字段     --fixed
+* 状态机、FailSafe容错机制
+* 归因分析、整理开发流程
+* 本地热部署 --fixed
+* 分布式锁、事务实现方式总结
+
+# 项目开发、发布流程
+```flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```

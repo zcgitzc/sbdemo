@@ -1,7 +1,7 @@
 package com.zark.sbproject.boot.service.common.service.impl;
 
-import com.zark.sbproject.boot.dao.user.entity.MessageDealPO;
-import com.zark.sbproject.boot.dao.user.mapper.MessageDealPOMapperExt;
+import com.zark.sbproject.boot.dao.common.entity.MessageDealPO;
+import com.zark.sbproject.boot.dao.common.mapper.MessageDealPOMapperExt;
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
 import com.zark.sbproject.boot.service.common.util.MessageDealUtil;

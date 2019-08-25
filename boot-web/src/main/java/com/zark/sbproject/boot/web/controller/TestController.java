@@ -1,13 +1,23 @@
 package com.zark.sbproject.boot.web.controller;
 
+import com.zark.sbproject.boot.api.user.bo.UserBO;
+import com.zark.sbproject.boot.api.user.service.UserLocalService;
+import com.zark.sbproject.boot.service.common.bo.GraphInstanceBO;
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
+import com.zark.sbproject.boot.service.common.constant.GraphStatus;
 import com.zark.sbproject.boot.service.common.message.producer.ActiveMqMessageProducer;
+import com.zark.sbproject.boot.service.common.service.LockLocalService;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
+import net.jodah.failsafe.Failsafe;
+import net.jodah.failsafe.RetryPolicy;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 
 @RestController
 public class TestController {
@@ -16,7 +26,15 @@ public class TestController {
     private ActiveMqMessageProducer activeMqMessageProducer;
     @Resource
     private MessageDealLocalService messageDealLocalService;
+    @Resource
+    private LockLocalService lockLocalService;
+    @Resource
+    private UserLocalService userLocalService;
 
+    private static final RetryPolicy<Object> retryPolicy = new RetryPolicy<>()
+            .handle(ArithmeticException.class)
+            .withDelay(Duration.ofSeconds(3))
+            .withMaxRetries(3);
 
     @GetMapping("sendQueue")
     public void sendQueueMessage(String message) {
@@ -50,5 +68,61 @@ public class TestController {
     @GetMapping("exception")
     public void exception() {
         System.out.println(1 / 0);
+    }
+
+    @GetMapping("lock")
+    public void lock() {
+        boolean hasLock = lockLocalService.tryLock("TEST");
+        if (hasLock) {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                lockLocalService.release("TEST");
+            }
+        } else {
+            System.out.println("get lock failure. please try later");
+        }
+    }
+
+    @PostMapping("dalAop")
+    public void dalAop(@RequestBody UserBO userBO) throws Exception {
+        userLocalService.insert(userBO);
+        Thread.sleep(5000);
+        userBO.setUsername("username - update");
+        userLocalService.updateById(userBO);
+    }
+
+    @GetMapping("graph")
+    public void graph() {
+        GraphInstanceBO graphInstanceBO = new GraphInstanceBO(GraphStatus.INIT);
+        GraphStatus nextStatus = graphInstanceBO.getStatus().getNextStatus((currStatus) -> {
+            //TODO create by zark 2019-08-25 处理从 init->started 的逻辑
+            userLocalService.queryAll();
+            System.out.println("currStatus:" + currStatus);
+        });
+        System.out.println("nextStatus:" + nextStatus);
+        graphInstanceBO.setStatus(nextStatus);
+
+        System.out.println("--------");
+
+        GraphStatus nextStatus1 = graphInstanceBO.getStatus().getNextStatus((currStatus) -> System.out.println("currStatus:" + currStatus));
+        System.out.println("nextStatus1:" + nextStatus1);
+        graphInstanceBO.setStatus(nextStatus1);
+
+        System.out.println("--------");
+
+        GraphStatus nextStatus2 = graphInstanceBO.getStatus().getNextStatus((currStatus) -> System.out.println("currStatus:" + currStatus));
+        System.out.println("nextStatus2:" + nextStatus2);
+        graphInstanceBO.setStatus(nextStatus2);
+    }
+
+
+    public static void main(String[] args) {
+        Failsafe.with(retryPolicy).run(() -> {
+            System.out.println("error:");
+            System.out.println(1 / 0);
+        });
     }
 }
