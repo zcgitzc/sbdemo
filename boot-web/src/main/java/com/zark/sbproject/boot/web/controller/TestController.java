@@ -8,6 +8,8 @@ import com.zark.sbproject.boot.service.common.constant.GraphStatus;
 import com.zark.sbproject.boot.service.common.message.producer.ActiveMqMessageProducer;
 import com.zark.sbproject.boot.service.common.service.LockLocalService;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
+import net.jodah.failsafe.Failsafe;
+import net.jodah.failsafe.RetryPolicy;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 
 @RestController
 public class TestController {
@@ -27,6 +30,11 @@ public class TestController {
     private LockLocalService lockLocalService;
     @Resource
     private UserLocalService userLocalService;
+
+    private static final RetryPolicy<Object> retryPolicy = new RetryPolicy<>()
+            .handle(ArithmeticException.class)
+            .withDelay(Duration.ofSeconds(3))
+            .withMaxRetries(3);
 
     @GetMapping("sendQueue")
     public void sendQueueMessage(String message) {
@@ -111,4 +119,10 @@ public class TestController {
     }
 
 
+    public static void main(String[] args) {
+        Failsafe.with(retryPolicy).run(() -> {
+            System.out.println("error:");
+            System.out.println(1 / 0);
+        });
+    }
 }
