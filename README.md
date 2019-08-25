@@ -15,12 +15,13 @@ springboot 学习
 
 *注意：如果要配置durid spring bean监控，因为依赖了spring aop必须maven添加spring aop依赖才行*
 
-
 # 项目内容
 * 利用mysql唯一索引实现分布式锁
 * logback日志精准打印
 * 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段
 * activeMq消息实现分布式事务控制
+* failsafe容错机制
+* 枚举抽象方法，实现状态机控制
 * and so on 
 
 # 待办事项
