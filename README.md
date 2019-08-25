@@ -27,14 +27,14 @@ springboot 学习
 * 添加app_lock实现分布式锁 (测试) --fixed
 * fix 代码中的TODO
 * 分布式事务测试
-* 添加AOP,5个字段
+* 添加AOP,5个字段     --fixed
 * 状态机、FailSafe容错机制
 * 归因分析、整理开发流程
-* 本地热部署
+* 本地热部署 --fixed
 * 分布式锁、事务实现方式总结
 
 # 项目开发、发布流程
-flow
+```flow
 st=>start: Start
 op=>operation: Your Operation
 cond=>condition: Yes or No?
@@ -42,3 +42,4 @@ e=>end
 st->op->cond
 cond(yes)->e
 cond(no)->op
+```
