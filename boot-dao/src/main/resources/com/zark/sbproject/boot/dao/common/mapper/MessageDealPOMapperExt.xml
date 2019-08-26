@@ -6,7 +6,7 @@
         <include refid="Base_Column_List"/>
         from app_message_deal
         where is_deleted = 'n'
-        and message_id = #{messageId}
+        and destination = #{destination}
         for update
     </select>
 </mapper>

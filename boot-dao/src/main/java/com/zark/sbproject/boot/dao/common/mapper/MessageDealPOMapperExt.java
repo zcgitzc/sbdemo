@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MessageDealPOMapperExt extends MessageDealPOMapper {
-    MessageDealPO lockByMessageId(String messageId);
+    MessageDealPO lockByMessageId(String destination);
 }

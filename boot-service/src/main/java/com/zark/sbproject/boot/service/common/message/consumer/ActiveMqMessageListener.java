@@ -1,14 +1,11 @@
 package com.zark.sbproject.boot.service.common.message.consumer;
 
-import com.zark.sbproject.boot.common.util.SpringContextUtil;
 import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
 import com.zark.sbproject.boot.service.common.constant.MessageConstants;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
-import com.zark.sbproject.boot.service.common.service.impl.MessageDealLocalServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -25,20 +22,20 @@ import java.util.Date;
  */
 @Slf4j
 @Component
-public class ActiveMqMessageListener implements MessageListener {
+public class ActiveMqMessageListener implements MessageListener, ApplicationContextAware {
 
-//TODO create by zark 2019-08-19 总是注入失败 null
+    private ApplicationContext applicationContext;
 
-//    @Resource
-//    private MessageDealLocalService messageDealLocalService;
+    @Resource
+    private MessageDealLocalService messageDealLocalService;
+
 
     @Override
     @Transactional
     public void onMessage(Message message) {
-        MessageDealLocalService messageDealLocalService = (MessageDealLocalService) SpringContextUtil.applicationContext.getBean("messageDealLocalServiceImpl");
         try {
             String messageBody = getMessageBody(message);
-            //TODO create by zark 2019-08-19 query 的怎么监听
+            //TODO create by zark 2019-08-19 query 的怎么监听、消息分组GroupId
             Destination destination = message.getJMSDestination();
             ActiveMQTopic activeMqTopic = (ActiveMQTopic) destination;
 
@@ -46,14 +43,15 @@ public class ActiveMqMessageListener implements MessageListener {
 
             String topic = activeMqTopic.getTopicName();
 
-            log.info("Receive message, topic : {}, message type : {},  message id : {},messageBody : {}", topic, messageId, messageBody);
+            log.info("Receive message, topic : {}, message id : {},messageBody : {}", topic, messageId, messageBody);
 
             Date receiveDate = new Date();
 
-            MessageDealBO messageDealBO = messageDealLocalService.lockByMessageId(messageId);
+            MessageDealBO messageDealBO = messageDealLocalService.lockByDestination(topic);
 
             //消息重复消费
             if (messageDealBO != null && MessageConstants.Status.SUCCESS.name().equals(messageDealBO.getDealStatus())) {
+                //TODO create by zark 2019-08-27 其实表结构没有弄好，不能记录每次的执行情况，只知道最后的状态（demo就算了，按这个写）
                 messageDealBO.setDealStartTime(receiveDate);
                 messageDealBO.setDealEndTime(receiveDate);
                 messageDealBO.setDealCount(messageDealBO.getDealCount() + 1);
@@ -90,13 +88,14 @@ public class ActiveMqMessageListener implements MessageListener {
     }
 
     private void handleMessage(String messageId, String messageBody, String topic, MessageDealBO messageDealBO) {
-        MessageDealLocalService messageDealLocalService = (MessageDealLocalService) SpringContextUtil.applicationContext.getBean("messageDealLocalServiceImpl");
-
         try {
+            long current = System.currentTimeMillis();
             handleMessage(messageId, messageBody, topic);
+            log.info("Handle message success, topic : {},  message id : {}, time cost : {}",
+                    topic, messageId, System.currentTimeMillis() - current);
             messageDealBO.setDealStatus(MessageConstants.Status.SUCCESS.name());
         } catch (Throwable e) {
-            log.error("Handle message : " + messageId + " failure, for reason : " + e.getMessage(), e);
+            log.error("Handle message failure, messageId: " + messageId + " for reason : " + e.getMessage(), e);
             messageDealBO.setDealStatus(MessageConstants.Status.FAILURE.name());
             messageDealBO.setErrorMessage(e.getMessage());
         } finally {
@@ -107,15 +106,11 @@ public class ActiveMqMessageListener implements MessageListener {
 
     private void handleMessage(String messageId, String messageBody, String topic) {
         MessageHandler<?> messageHandler = getMessageHandler(topic);
-        long current = System.currentTimeMillis();
         messageHandler.handleMessage(messageBody);
-        log.info("Handle message success, topic : {},  message id : {}, time cost : {}",
-                topic, messageId, System.currentTimeMillis() - current);
     }
 
-    @SuppressWarnings("rawtypes")
     private MessageHandler<?> getMessageHandler(String topic) {
-        Collection<MessageHandler> beans = SpringContextUtil.applicationContext.getBeansOfType(MessageHandler.class).values();
+        Collection<MessageHandler> beans = applicationContext.getBeansOfType(MessageHandler.class).values();
         for (MessageHandler handler : beans) {
             if (handler.getTopic().equals(topic)) {
                 return handler;
@@ -136,11 +131,15 @@ public class ActiveMqMessageListener implements MessageListener {
         if (message instanceof TextMessage) {
             return ((TextMessage) message).getText();
         } else if (message instanceof BytesMessage) {
-           //TODO create by zark 2019-08-19 其他消息类型
+            //TODO create by zark 2019-08-19 其他消息类型
         } else {
             throw new RuntimeException("UNSUPPORTED_MESSAGE_TYPE");
         }
         return null;
     }
 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 }

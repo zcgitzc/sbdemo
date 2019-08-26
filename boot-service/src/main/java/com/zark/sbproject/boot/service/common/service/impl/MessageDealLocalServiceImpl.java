@@ -20,7 +20,7 @@ public class MessageDealLocalServiceImpl implements MessageDealLocalService {
     private MessageDealPOMapperExt messageDealPOMapperExt;
 
     @Override
-    public MessageDealBO lockByMessageId(String messageId) {
+    public MessageDealBO lockByDestination(String messageId) {
         MessageDealPO messageDealPO = messageDealPOMapperExt.lockByMessageId(messageId);
 
         return MessageDealUtil.poToBo(messageDealPO);
