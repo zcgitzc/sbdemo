@@ -16,12 +16,12 @@ springboot 学习
 *注意：如果要配置durid spring bean监控，因为依赖了spring aop必须maven添加spring aop依赖才行*
 
 # 项目内容
-* 利用mysql唯一索引实现分布式锁
-* logback日志精准打印
-* 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段
+* 利用mysql唯一索引实现分布式锁 [@see LockLocalServiceImpl.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-service/src/main/java/com/zark/sbproject/boot/service/common/service/impl/LockLocalServiceImpl.java)
+* logback日志精准打印 [@see logback-spring.xml](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-start/src/main/resources/logback-spring.xml)
+* 重写mybatis-generator，生成注释、MapperExt、适配通用5个字段 [@see MyBatisPaginationPlugin.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-dao/src/main/java/com/zark/sbproject/boot/dao/plugin/MyBatisPaginationPlugin.java) [@see MyCommentGenerator.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-dao/src/main/java/com/zark/sbproject/boot/dao/plugin/MyCommentGenerator.java)
 * activeMq消息实现分布式事务控制
-* failsafe容错机制
-* 枚举抽象方法，实现状态机控制
+* failsafe容错机制 [@see TestController.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/controller/TestController.java)
+* 枚举抽象方法，实现状态机控制 [@see GraphStatus.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-service/src/main/java/com/zark/sbproject/boot/service/common/constant/GraphStatus.java) [@see TestController.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/controller/TestController.java)
 * and so on 
 
 # 待办事项
