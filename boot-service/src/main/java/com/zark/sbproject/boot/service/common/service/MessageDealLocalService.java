@@ -8,7 +8,7 @@ import com.zark.sbproject.boot.service.common.bo.MessageDealBO;
  */
 public interface MessageDealLocalService {
 
-    MessageDealBO lockByMessageId(String messageId);
+    MessageDealBO lockByDestination(String messageId);
 
     int insert(MessageDealBO messageDealBO);
 

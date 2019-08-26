@@ -55,11 +55,12 @@ public class ActiveMqConfiguration {
     }
 
     @Bean
-    public DefaultMessageListenerContainer defaultMessageListenerContainer(ConnectionFactory connectionFactory) {
+    public DefaultMessageListenerContainer defaultMessageListenerContainer(ConnectionFactory connectionFactory, ActiveMqMessageListener activeMqMessageListener) {
         DefaultMessageListenerContainer defaultMessageListenerContainer = new DefaultMessageListenerContainer();
 
         defaultMessageListenerContainer.setConnectionFactory(connectionFactory);
-        defaultMessageListenerContainer.setMessageListener(new ActiveMqMessageListener());
+        //特别注意：这块不能直接new ActiveMqMessageListener() 应该把它交给spring管理，不然里面不能注入其他bean
+        defaultMessageListenerContainer.setMessageListener(activeMqMessageListener);
 
 //        Destination destination = new ActiveMQQueue("*");
 

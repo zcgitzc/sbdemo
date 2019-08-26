@@ -10,7 +10,6 @@ import com.zark.sbproject.boot.service.common.service.LockLocalService;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
 import net.jodah.failsafe.Failsafe;
 import net.jodah.failsafe.RetryPolicy;
-import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,22 +45,22 @@ public class TestController {
         activeMqMessageProducer.sendMessageToTopic("i-topic", message);
     }
 
-
-    @JmsListener(destination = "i-queue ", containerFactory = "queueListenerFactory")
-    public void receiveQueue(String message) {
-        System.out.println("receive queue message:" + message);
-
-    }
-
-    @JmsListener(destination = "i-topic ", containerFactory = "topicListenerFactory")
-    public void receiveTopic(String message) {
-        System.out.println("receive topic message:" + message);
-    }
+// 通过 ActiveMqMessageListener 统一监听
+//    @JmsListener(destination = "i-queue ", containerFactory = "queueListenerFactory")
+//    public void receiveQueue(String message) {
+//        System.out.println("receive queue message:" + message);
+//
+//    }
+//
+//    @JmsListener(destination = "i-topic ", containerFactory = "topicListenerFactory")
+//    public void receiveTopic(String message) {
+//        System.out.println("receive topic message:" + message);
+//    }
 
 
     @GetMapping("getMessageDeal")
     public MessageDealBO getMessageDeal(String messageId) {
-        MessageDealBO messageDealBO = messageDealLocalService.lockByMessageId(messageId);
+        MessageDealBO messageDealBO = messageDealLocalService.lockByDestination(messageId);
         return messageDealBO;
     }
 
