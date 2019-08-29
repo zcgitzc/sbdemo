@@ -1,8 +1,8 @@
 ### markdown 语法学习转到：
 http://www.markdown.cn
 # sbdemo项目
-搭建良好的 springboot 开发环境。用于实践日常学习到的技术 
-`启动方式（其中一种）：IDEA运行main方法 [@See SpringbootApplication.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-start/src/main/java/com/zark/sbproject/boot/start/SpringbootApplication.java)`
+搭建良好的 springboot 开发环境。用于实践日常学习到的技术  
+启动方式（其中一种）：IDEA运行main方法 [@See SpringbootApplication.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-start/src/main/java/com/zark/sbproject/boot/start/SpringbootApplication.java)
 
 # 搭建Mybatis环境注意点
 1.@MapperScan 扫描Mybatis注解
