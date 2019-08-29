@@ -1,7 +1,7 @@
 ### markdown 语法学习转到：
 http://www.markdown.cn
 # sbdemo项目
-springboot 学习
+搭建良好的 springboot 开发环境。用于实践日常学习到的技术
 
 # 搭建Mybatis环境注意点
 1.@MapperScan 扫描Mybatis注解
@@ -26,14 +26,15 @@ springboot 学习
 
 # 待办事项
 * 添加app_lock实现分布式锁 (测试) --fixed
-* fix 代码中的TODO
-* 分布式事务测试
+* fix 代码中的TODO  --fixed
+* 分布式事务测试 --fixed
 * 添加AOP,5个字段     --fixed
-* 状态机、FailSafe容错机制
+* 状态机、FailSafe容错机制  --fixed
 * 归因分析、整理开发流程
-* 本地热部署 --fixed
+* 本地热部署 --fixed （感觉有点鸡肋。项目小，自己手动重启更快，项目大，热部署不适用）
 * 分布式锁、事务实现方式总结
 * wiki编写
+* java -jar启动，应用Arthas(阿尔萨斯),查看项目内存信息，模拟线上OOM定位
 
 # 项目开发、发布流程
 ```flow
