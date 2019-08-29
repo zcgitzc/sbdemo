@@ -2,6 +2,7 @@
 http://www.markdown.cn
 # sbdemo项目
 搭建良好的 springboot 开发环境。用于实践日常学习到的技术
+启动方式（其中一种）：IDEA运行main方法 [@See SpringbootApplication.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-start/src/main/java/com/zark/sbproject/boot/start/SpringbootApplication.java)
 
 # 搭建Mybatis环境注意点
 1.@MapperScan 扫描Mybatis注解
@@ -22,6 +23,8 @@ http://www.markdown.cn
 * activeMq消息实现分布式事务控制
 * failsafe容错机制 [@see TestController.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/controller/TestController.java)
 * 枚举抽象方法，实现状态机控制 [@see GraphStatus.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-service/src/main/java/com/zark/sbproject/boot/service/common/constant/GraphStatus.java) [@see TestController.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/controller/TestController.java)
+* @RestControllerAdvice统一处理异常和返回值 [@see WebResultHander.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/framework/WebResultHandler.java)
+* 自定义注解实现Controller权限控制[@see AclCheckAspect.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/permission/aspect/AclCheckAspect.java)
 * and so on 
 
 # 待办事项
