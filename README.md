@@ -39,14 +39,3 @@ http://www.markdown.cn
 * wiki编写（总结技术点）
 * java -jar启动，应用Arthas(阿尔萨斯),查看项目内存信息，模拟线上OOM定位
 * 添加dockerfile 将项目打成docker镜像发布
-
-# 项目开发、发布流程
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
