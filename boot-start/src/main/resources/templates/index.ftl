@@ -5,8 +5,17 @@
     <title>Hello world</title>
 </head>
 <body>
-Hello world 123
+    <div id="root">
+        Hello world 123
+    </div>
 </body>
+
+<#--
+<link href="style.css" rel="stylesheet" type="static/css/main.821222f2.css" />
+<script type="text/javascript" src="static/js/main.f099c533.js"/>
+-->
+
+
 <script>
     this.window.appConfig = {
         map: ${map},
