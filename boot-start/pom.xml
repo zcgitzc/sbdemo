@@ -13,8 +13,6 @@
     <artifactId>boot-start</artifactId>
     <name>boot-start</name>
 
-    <url>http://maven.apache.org</url>
-
     <properties>
         <docker.registry>localhost:5000</docker.registry>
     </properties>
@@ -66,7 +64,22 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.3.7</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
+                    <repository>sbdemo</repository>
+                    <tag>0.0.1</tag>
+                    <contextDirectory>${project.basedir}</contextDirectory>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
                     <dockerInfoDirectory>src/main/docker</dockerInfoDirectory>
                     <dockerConfigFile>src/main/docker</dockerConfigFile>
                 </configuration>
