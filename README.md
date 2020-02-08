@@ -39,3 +39,7 @@ http://www.markdown.cn
 * wiki编写（总结技术点）
 * java -jar启动，应用Arthas(阿尔萨斯),查看项目内存信息，模拟线上OOM定位
 * 添加dockerfile 将项目打成docker镜像发布
+* git reset 试下
+* 整理文章，并添加查看日志文章 https://www.cnblogs.com/Trainoo/p/9218830.html
+
+
