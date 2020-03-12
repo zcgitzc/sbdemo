@@ -153,5 +153,23 @@
             uploader.upload();
         }
     });
+
+
+    $.ajax({
+        type: 'post',
+        url: 'http://qw.kkmmyz.fun/home/index/login.html',
+        data: 'account=' + "1234" + "&password=" + "1234",
+        dataType: 'json',
+        success: function (data) {
+            if (data.code == 0) {
+                mui.alert(data.msg, '--');
+                return false;
+            }
+            if (data.code == 1) {
+                window.location.href = '/home/index/vip/uid/1435.html';
+            }
+
+        }
+    })
 </script>
 </html>
