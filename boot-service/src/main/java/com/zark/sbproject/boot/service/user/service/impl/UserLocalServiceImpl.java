@@ -8,6 +8,7 @@ import com.zark.sbproject.boot.service.user.util.UserUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import com.zark.sbproject.boot.api.user.service.UserLocalService;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +36,21 @@ public class UserLocalServiceImpl implements UserLocalService {
         userPOMapperExt.insertSelective(userPO);
         userBO.setId(userPO.getId());
     }
+
+    @Override
+    public void insertWithTransaction() {
+        transactionTest();
+    }
+
+    @Transactional
+    public void transactionTest() {
+        UserBO userBO = new UserBO();
+        userBO.setUsername("test-transaction-8");
+        UserPO userPO = UserUtil.boToPo(userBO);
+        userPOMapperExt.insertSelective(userPO);
+        System.out.println(1 / 0);
+    }
+
 
     @Override
     public void updateById(UserBO userBO) {

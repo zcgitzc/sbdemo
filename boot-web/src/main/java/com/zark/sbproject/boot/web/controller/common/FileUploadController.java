@@ -1,6 +1,5 @@
 package com.zark.sbproject.boot.web.controller.common;
 
-import com.google.common.io.Files;
 import com.zark.sbproject.boot.web.controller.vo.ChunkUploadVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
@@ -12,9 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
+ * 配合：百度 WebUploader 实现文件分片上传  官网地址：http://fex.baidu.com/webuploader/
  * @author zark
  * @description
  * @date 2020-02-08 12:55

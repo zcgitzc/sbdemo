@@ -31,9 +31,9 @@ public class CipherFile {
 //        cipher.init(cipherMode, keySpec);
 //
 
-        SecretKey deskey = new SecretKeySpec(ENCRYPT_KEY.getBytes(), ENCRYPT_TYPE);
+        SecretKey secretKey = new SecretKeySpec(ENCRYPT_KEY.getBytes(), ENCRYPT_TYPE);
         Cipher cipher = Cipher.getInstance(ENCRYPT_TYPE);
-        cipher.init(cipherMode, deskey);
+        cipher.init(cipherMode, secretKey);
 
         return cipher;
 

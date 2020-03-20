@@ -23,4 +23,6 @@ public interface UserLocalService {
      * 修改
      */
     void updateById(UserBO userBO);
+
+    void insertWithTransaction();
 }
