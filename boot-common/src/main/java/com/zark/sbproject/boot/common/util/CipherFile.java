@@ -1,42 +1,36 @@
 package com.zark.sbproject.boot.common.util;
 
-import javax.crypto.*;
+import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.security.SecureRandom;
+import java.util.Base64;
 
 /**
  * @author Zark
  */
 public class CipherFile {
 
-    // 加密类型，支持这三种DESede,Blowfish,AES
-    private static final String ENCRYPT_TYPE = "AES";
-    // 加密秘钥，长度为24字节
-    private static final String ENCRYPT_KEY = "mQbJILokBccRHUkS+XBk7A==";
+    private static final String ENCRYPT_TYPE = "AES/CBC/PKCS5Padding";
+
+    private static final String ENCRYPT_KEY = "emh1YW5nY2h1YW4xMjM0NQ==";
 
 
     private Cipher initAESCipher(int cipherMode) throws Exception {
-//        KeyGenerator generator = KeyGenerator.getInstance(ENCRYPT_TYPE);
-//        generator.init(128, new SecureRandom(ENCRYPT_KEY.getBytes()));
-//
-//        SecretKey secretKey = generator.generateKey();
-//        byte[] codeFormat = secretKey.getEncoded();
-//
-//        SecretKeySpec keySpec = new SecretKeySpec(codeFormat, ENCRYPT_TYPE);
-//        Cipher cipher = Cipher.getInstance(ENCRYPT_TYPE);
-//        cipher.init(cipherMode, keySpec);
-//
-
-        SecretKey secretKey = new SecretKeySpec(ENCRYPT_KEY.getBytes(), ENCRYPT_TYPE);
         Cipher cipher = Cipher.getInstance(ENCRYPT_TYPE);
-        cipher.init(cipherMode, secretKey);
+
+        SecretKey secretKey = new SecretKeySpec(Base64.getDecoder().decode(ENCRYPT_KEY), "AES");
+        IvParameterSpec iv = new IvParameterSpec(secretKey.getEncoded());
+
+        cipher.init(cipherMode, secretKey, iv);
 
         return cipher;
-
     }
 
 
@@ -90,9 +84,10 @@ public class CipherFile {
      */
     public static void main(String[] args) throws Exception {
         CipherFile deEncrypt = new CipherFile();
+
         // 加密
-        deEncrypt.encryptFile("/Users/zark/tempfile/sbdemo.sql", "/Users/zark/tempfile/sbdemo_encrypt.sql");
+        deEncrypt.encryptFile("D:\\file\\file.txt", "D:\\file\\file_encrypt.txt");
         // 解密
-        deEncrypt.decryptFile("/Users/zark/tempfile/sbdemo_encrypt.sql", "/Users/zark/tempfile/sbdemo_decrypt.sql");
+        deEncrypt.decryptFile("D:\\file\\file_encrypt.txt", "D:\\file\\file_decrypt.txt");
     }
 }
