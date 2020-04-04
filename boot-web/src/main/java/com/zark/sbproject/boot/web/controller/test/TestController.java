@@ -1,4 +1,4 @@
-package com.zark.sbproject.boot.web.controller;
+package com.zark.sbproject.boot.web.controller.test;
 
 import com.zark.sbproject.boot.api.user.bo.UserBO;
 import com.zark.sbproject.boot.api.user.service.UserLocalService;
