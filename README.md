@@ -25,6 +25,9 @@ http://www.markdown.cn
 * 枚举抽象方法，实现状态机控制 [@see GraphStatus.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-service/src/main/java/com/zark/sbproject/boot/service/common/constant/GraphStatus.java) [@see TestController.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/controller/TestController.java)
 * @RestControllerAdvice统一处理异常和返回值 [@see WebResultHander.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/framework/WebResultHandler.java)
 * 自定义注解实现Controller权限控制[@see AclCheckAspect.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-web/src/main/java/com/zark/sbproject/boot/web/permission/aspect/AclCheckAspect.java)
+* AES加密文件流
+* 简易实现 spring statemachine
+
 * and so on 
 
 # 待办事项

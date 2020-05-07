@@ -8,6 +8,8 @@ import com.zark.sbproject.boot.service.common.constant.GraphStatus;
 import com.zark.sbproject.boot.service.common.message.producer.ActiveMqMessageProducer;
 import com.zark.sbproject.boot.service.common.service.LockLocalService;
 import com.zark.sbproject.boot.service.common.service.MessageDealLocalService;
+import com.zark.sbproject.boot.service.common.service.TransactionalService;
+import lombok.Data;
 import net.jodah.failsafe.Failsafe;
 import net.jodah.failsafe.RetryPolicy;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.time.Duration;
 
+@Data
 @RestController
 public class TestController {
 
@@ -29,6 +32,8 @@ public class TestController {
     private LockLocalService lockLocalService;
     @Resource
     private UserLocalService userLocalService;
+    @Resource
+    private TransactionalService transactionalService;
 
     private static final RetryPolicy<Object> retryPolicy = new RetryPolicy<>()
             .handle(ArithmeticException.class)
@@ -86,11 +91,17 @@ public class TestController {
     }
 
     @PostMapping("dalAop")
-    public void dalAop(@RequestBody UserBO userBO) throws Exception {
-        userLocalService.insert(userBO);
-        Thread.sleep(5000);
-        userBO.setUsername("username - update");
-        userLocalService.updateById(userBO);
+    public void dalAop(@RequestBody UserBO userBO) {
+        transactionalService.executeWithNewTransactional(() -> {
+            userLocalService.insert(userBO);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            userBO.setUsername("username - update");
+            userLocalService.updateById(userBO);
+        });
     }
 
     @GetMapping("graph")

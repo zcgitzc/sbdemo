@@ -16,39 +16,47 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+
+
 		<dependency>
 			<groupId>com.zark.sbproject</groupId>
 			<artifactId>boot-api</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.zark.sbproject</groupId>
 			<artifactId>boot-service</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.zark.sbproject</groupId>
+			<artifactId>boot-common</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.statemachine</groupId>
+			<artifactId>spring-statemachine-core</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>net.jodah</groupId>
 			<artifactId>failsafe</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 
 		<dependency>
