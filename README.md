@@ -1,5 +1,8 @@
 ### markdown 语法学习转到：
 http://www.markdown.cn
+
+### 收罗网络上写的好的文章和博主，便于日后查找 [@see wiki](https://github.com/zcgitzc/sbdemo/wiki)
+
 # sbdemo项目
 搭建良好的 springboot 开发环境。用于实践日常学习到的技术  
 启动方式（其中一种）：IDEA运行main方法 [@See SpringbootApplication.java](https://github.com/zcgitzc/sbdemo/blob/project_init/boot-start/src/main/java/com/zark/sbproject/boot/start/SpringbootApplication.java)
